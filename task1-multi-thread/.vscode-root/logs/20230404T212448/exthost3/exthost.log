@@ -1,0 +1,21 @@
+[2023-04-04 21:25:07.486] [exthost] [info] Extension host with pid 111214 started
+[2023-04-04 21:25:07.541] [exthost] [info] $resolveAuthority invoked for authority (ssh-remote)
+[2023-04-04 21:25:07.561] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-ssh, startup: false, activationEvent: 'onResolveRemoteAuthority:ssh-remote'
+[2023-04-04 21:25:11.947] [exthost] [info] Eager extensions activated
+[2023-04-04 21:25:12.033] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+[2023-04-04 21:25:12.464] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+[2023-04-04 21:25:51.937] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2023-04-04 21:25:51.943] [exthost] [info] Extension host with pid 111214 exiting with code 0
+[2023-04-04 21:25:54.539] [exthost] [info] Extension host with pid 111263 started
+[2023-04-04 21:25:54.540] [exthost] [info] Skipping acquiring lock for /home/xyw/Documents/Code/cpp/recruitment-2022-spring/task1-multi-thread/.vscode-root/User/workspaceStorage/ee640490f9491605ee853497e1f714c7.
+[2023-04-04 21:25:54.585] [exthost] [info] $getCanonicalURI invoked for authority (ssh-remote)
+[2023-04-04 21:25:54.595] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-ssh, startup: false, activationEvent: 'onResolveRemoteAuthority:ssh-remote'
+[2023-04-04 21:25:54.682] [exthost] [info] $resolveAuthority invoked for authority (ssh-remote)
+[2023-04-04 21:25:58.759] [exthost] [info] Eager extensions activated
+[2023-04-04 21:25:58.819] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+[2023-04-04 21:25:59.201] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+[2023-04-04 21:25:59.824] [exthost] [info] $getCanonicalURI invoked for authority (ssh-remote)
+[2023-04-04 22:38:10.251] [exthost] [info] $resolveAuthority invoked for authority (ssh-remote)
+[2023-04-05 15:33:56.006] [exthost] [info] $resolveAuthority invoked for authority (ssh-remote)
+[2023-04-05 15:50:34.274] [exthost] [info] Extension host terminating: received terminate message from renderer
+[2023-04-05 15:50:34.305] [exthost] [info] Extension host with pid 111263 exiting with code 0

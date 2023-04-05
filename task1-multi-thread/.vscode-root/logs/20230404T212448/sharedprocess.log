@@ -1,0 +1,5 @@
+[2023-04-04 21:24:54.581] [sharedprocess] [info] Starting worker process with pid 111180 (type: fileWatcher, window: 1).
+[2023-04-04 21:25:06.864] [sharedprocess] [info] Starting worker process with pid 111215 (type: fileWatcher, window: 3).
+[2023-04-04 21:25:51.963] [sharedprocess] [info] Worker process with pid 111215 terminated normally (type: fileWatcher, window: 3).
+[2023-04-04 21:25:53.916] [sharedprocess] [info] Starting worker process with pid 111262 (type: fileWatcher, window: 3).
+[2023-04-05 15:50:34.409] [sharedprocess] [info] Worker process with pid 111180 terminated normally (type: fileWatcher, window: 1).
