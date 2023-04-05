@@ -241,7 +241,73 @@ void clampedExpSerial(float* values, int* exponents, float* output, int N) {
 }
 
 void clampedExpVector(float* values, int* exponents, float* output, int N) {
+    int iter_start = N / 4 * 4;
+    __cs149_mask masker = _cs149_init_ones();
+    __cs149_vec_float maxlimit = _cs149_vset_float(9.999999f);
+    __cs149_vec_float one_f = _cs149_vset_float(1.0f);
+    for (int i = 0; i < N; i += 4) {
+      //float x[4];
+      //int y[4];
+      __cs149_vec_float x;
+      __cs149_vec_int y;
+      __cs149_vec_float result;
 
+      _cs149_vload_float(x, values + i, masker);
+      _cs149_vload_int(y, exponents + i, masker);
+      
+      __cs149_vec_int zero_int = _cs149_vset_int(0);
+      __cs149_mask masker_zero = _cs149_init_ones(0);
+
+      _cs149_veq_int(masker_zero, y, zero_int, masker);
+      __cs149_mask masker_not_zero = _cs149_mask_not(masker_zero);
+
+      
+    //  _cs149_vmove_float(result, x, masker_not_zero);
+
+
+    //__m256i zeroMask = _mm256_cmpeq_epi32(y, _mm256_setzero_si256());
+    
+    //__ result = x;
+    //__cs149_vec_float result;
+    _cs149_vmove_float(result, x, masker);
+    __cs149_vec_int ones = _cs149_vset_int(1);
+    __cs149_vec_int count;
+    _cs149_vsub_int(count, y, ones, masker);
+    __cs149_mask mask_cnt = masker_not_zero;
+    _cs149_vgt_int(mask_cnt, count, zero_int, masker);
+    while (_cs149_cntbits(mask_cnt)) {
+      _cs149_vmult_float(result, result, x, mask_cnt);
+      _cs149_vsub_int(count, count, ones, mask_cnt);
+      _cs149_vgt_int(mask_cnt, count, zero_int, mask_cnt);
+    }
+    __cs149_mask mask_end = masker_not_zero;
+    //_cs149_vmove_float(result, one_f, masker_zero);
+    //result = _(result, maxLimit);
+    _cs149_vgt_float(mask_end, result, maxlimit, masker);
+    _cs149_vmove_float(result, maxlimit, mask_end);
+    _cs149_vstore_float(output + i, result, masker_not_zero);
+    _cs149_vstore_float(output + i, one_f, masker_zero);
+    //_mm256_storeu_ps(&output[i], result);
+  }
+  for (int i = iter_start; i < N; i++) {
+    float x_ = values[i];
+    int y_ = exponents[i];
+    if (y_ == 0) {
+      output[i] = 1.f;
+    } else {
+      float result_ = x_;
+      int count_ = y_ - 1;
+      while (count_ > 0) {
+        result_ *= x_;
+        count_--;
+      }
+      if (result_ > 9.999999f) {
+        result_ = 9.999999f;
+      }
+      output[i] = result_;
+    }
+  }
+    }
   //
   // CS149 STUDENTS TODO: Implement your vectorized version of
   // clampedExpSerial() here.
@@ -250,7 +316,7 @@ void clampedExpVector(float* values, int* exponents, float* output, int N) {
   // N and VECTOR_WIDTH, not just when VECTOR_WIDTH divides N
   //
   
-}
+
 
 // returns the sum of all elements in values
 float arraySumSerial(float* values, int N) {
