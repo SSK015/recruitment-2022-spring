@@ -1,0 +1,7 @@
+[2023-04-08 18:53:16.252] [main] [info] update#setState idle
+[2023-04-08 18:53:19.793] [main] [info] Starting extension host with pid 143686 (fork() took 22 ms).
+[2023-04-08 18:53:46.266] [main] [info] update#setState checking for updates
+[2023-04-08 18:53:46.275] [main] [info] update#setState available for download
+[2023-04-08 18:55:10.533] [main] [info] Starting extension host with pid 143888 (fork() took 28 ms).
+[2023-04-08 18:55:25.367] [main] [info] Extension host with pid 143888 exited with code: 0, signal: null.
+[2023-04-08 18:55:26.814] [main] [info] Starting extension host with pid 143952 (fork() took 16 ms).
