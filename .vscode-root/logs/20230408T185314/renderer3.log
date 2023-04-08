@@ -1,8 +1,0 @@
-[2023-04-08 18:55:10.315] [renderer3] [info] [attempt 1] Invoking resolveAuthority(ssh-remote)
-[2023-04-08 18:55:14.871] [renderer3] [error] [Extension Host] (node:143888) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
-(Use `code --trace-deprecation ...` to show where the warning was created)
-[2023-04-08 18:55:14.901] [renderer3] [info] [attempt 1] resolveAuthority(ssh-remote) returned '127.0.0.1:43759' after 4587 ms
-[2023-04-08 18:55:27.373] [renderer3] [info] [attempt 1] Invoking resolveAuthority(ssh-remote)
-[2023-04-08 18:55:30.453] [renderer3] [error] [Extension Host] (node:143952) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
-(Use `code --trace-deprecation ...` to show where the warning was created)
-[2023-04-08 18:55:30.495] [renderer3] [info] [attempt 1] resolveAuthority(ssh-remote) returned '127.0.0.1:42613' after 3122 ms
