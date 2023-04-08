@@ -7,6 +7,10 @@
 #include <vector>
 #include <cassert>
 
+#include <emmintrin.h>
+#include <immintrin.h>
+#include <omp.h>
+
 #define PRINT_TIME(code) do { \
     auto start = system_clock::now(); \
     code \
@@ -25,10 +29,21 @@ const int scale[] = {256, 512, 1024, 2048};
 const string data_path("./data/");
 
 void Gemm(const int &size, vec &a, vec &b, vec &c) {
+    #pragma omp parallel for 
     for(int i = 0; i < size; i++)
-        for(int j = 0; j < size; j++)
-            for(int k = 0; k < size; k++)
-                c[i*size+j] += a[i*size+k] * b[k*size+j];
+        for(int j = 0; j < size; j++){
+            /*for(int k = 0; k < size; k++)
+                c[i*size+j] += a[i*size+k] * b[k*size+j];*/
+            for (int k = 0; k < size; k += 4) {
+                c[i * size + j] += a[i * size + k] * b[k * size + j]; 
+                c[i * size + j] += a[i * size + k + 1] * b[(k + 1) * size + j];
+                c[i * size + j] += a[i * size + k + 2] * b[(k + 2) * size + j];
+                c[i * size + j] += a[i * size + k + 3] * b[(k + 3) * size + j];
+            }
+            for (int k = size / 4 * 4; k < size; ++k) {
+                c[i * size + j] += a[i * size + k] * b[k * size + j]; 
+            }
+        }
 }
 
 void CheckResult(const vec &c, const string &result_path) {
